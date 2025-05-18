@@ -1,0 +1,37 @@
+<PlotScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 40
+        canvas.before:
+            Color:
+                rgba: 0.13, 0.15, 0.21, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: self.minimum_height
+
+            ClickableImage:
+                source: 'imgs/back_arrow.png'
+                on_release: app.root.current = "main_screen"
+
+
+            Label:
+                text: "Statisztika"
+                font_size: '28sp'
+                bold: True
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            Widget:
+
+
+        BoxLayout:
+            id: box
+            size_hint_y: .8
+            pos_hint: {"top":1}

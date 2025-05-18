@@ -1,0 +1,28 @@
+{
+    "categories": [
+        {
+            "name": "kaja",
+            "expenses": []
+        },
+        {
+            "name": "j\u00e1t\u00e9kok",
+            "expenses": []
+        },
+        {
+            "name": "sz\u00f3rakoz\u00e1s",
+            "expenses": []
+        },
+        {
+            "name": "proba",
+            "expenses": [
+                {
+                    "amount": 1000,
+                    "date": "2025-05-18",
+                    "desc": "sz\u00f6veg"
+                }
+            ]
+        }
+    ],
+    "limit": "15000",
+    "lastLogIn": "2025-05-18"
+}

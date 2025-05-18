@@ -1,0 +1,53 @@
+<DetailScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0.13, 0.15, 0.21, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: self.minimum_height
+
+
+            ClickableImage:
+                source: 'imgs/back_arrow.png'
+                on_release: app.root.current = "main_screen"
+
+            Label:
+                id: category_title
+                text: "Valami hiba történt"
+                font_size: '28sp'
+                bold: True
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            Widget:
+
+        Label:
+            text: 'Kiadások:'
+            font_size: '18sp'
+            bold: True
+            color: 1, 1, 1, 1
+            halign: 'left'
+            text_size: self.size
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        #Kiadások container
+        BoxLayout:
+            id: expenses_container
+            orientation: 'vertical'
+            padding: 10
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 10
+
+        Widget:

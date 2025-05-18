@@ -1,0 +1,133 @@
+<SettingScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 40
+        canvas.before:
+            Color:
+                rgba: 0.13, 0.15, 0.21, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: self.minimum_height
+
+
+            ClickableImage:
+                source: 'imgs/back_arrow.png'
+                on_release: app.root.current = "main_screen"
+
+            Label:
+                text: "Beállítások"
+                font_size: '28sp'
+                bold: True
+                color: 1, 1, 1, 1
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            Widget:
+
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: None, None
+            height: self.minimum_height
+            width: min(self.parent.parent.width, 600)
+            pos_hint: {'center_x': 0.5}
+
+            Label:
+                text: 'Havi limit:'
+                font_size: '18sp'
+                bold: True
+                color: 1, 1, 1, 1
+                text_size: self.size
+
+            TextInput:
+                id: limit
+                hint_text: '-'
+                on_focus: root.focus_change(self.focus)
+                size_hint: None, None
+                size: 100, 30
+
+            Label:
+                text: ' Ft'
+                color: 1, 1, 1, 1
+                font_size: '18sp'
+                size_hint_x: None
+                width: self.texture_size[0]
+
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'Kategóriák:'
+                font_size: '18sp'
+                bold: True
+                color: 1, 1, 1, 1
+                halign: 'left'
+                text_size: self.size
+                size_hint: None, None
+                height: self.texture_size[1]
+                width: min(self.parent.parent.parent.width, 600)
+                pos_hint: {'center_x': 0.5}
+
+
+            GridLayout:
+                id: categories_container
+                cols: 3
+                row_spacing: 10
+                row_default_height: 30
+                row_force_default: True
+                padding: [25, 0, 25, 0]
+                size_hint: None, None
+                height: self.minimum_height
+                width: min(self.parent.parent.parent.width, 600)
+                pos_hint: {'center_x': 0.5}
+
+        Widget:
+
+        Button:
+            text: 'Új kategória'
+            color: 1, 1, 1, 1
+            bold: True
+            font_size: '22sp'
+            background_color: 1, 1, 1, 0
+            size_hint: None, None
+            size: 150, 35
+
+            canvas.before:
+                Color:
+                    rgba: 0.12, 0.09, 0.97, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+            on_release: app.root.current = "new_category_screen"
+
+            pos_hint: {'center_x': 0.5}
+
+        Button:
+            text: 'Minden adat törlése'
+            color: 1, 1, 1, 1
+            bold: True
+            font_size: '22sp'
+            background_color: 1, 1, 1, 0
+            size_hint: None, None
+            size: 220, 35
+
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0, 0, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+            on_press: root.delete_all()
+
+            pos_hint: {'center_x': 0.5}

@@ -1,0 +1,85 @@
+<NewCategoryScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 20
+        canvas.before:
+            Color:
+                rgba: 0.13, 0.15, 0.21, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Új kategória"
+            font_size: '24sp'
+            bold: True
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            size_hint: None, None
+            height: self.minimum_height
+            width: min(self.parent.parent.width, 600)
+            pos_hint: {'center_x': 0.5}
+
+            Label:
+                text: 'Új kategória neve:'
+                font_size: '16sp'
+                color: 1, 1, 1, 1
+
+            TextInput:
+                id: category_name
+                hint_text: '...'
+                color: 0, 0, 0, 1
+                size_hint_y: None
+                height: 40
+                padding: 10
+                multiline: False
+
+        Widget
+
+        Button:
+            text: "Mentés"
+            size_hint: None, None
+            size: 110, 35
+            pos_hint: {"center_x": 0.5}
+            background_normal: ''
+            background_color: 1, 1, 1, 0
+            color: 1, 1, 1, 1
+            font_size: '22sp'
+            bold: True
+
+            canvas.before:
+                Color:
+                    rgba: 0, 0.8, 0, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+            on_release: root.save(category_name.text)
+
+        Button:
+            text: "Mégse"
+            size_hint: None, None
+            size: 110, 35
+            pos_hint: {"center_x": 0.5}
+            background_normal: ''
+            background_color: 1, 1, 1, 0
+            color: 1, 1, 1, 1
+            font_size: '22sp'
+            bold: True
+
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0, 0, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+            on_release: root.back_to_main()

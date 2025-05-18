@@ -1,0 +1,153 @@
+<ClickableImage@ButtonBehavior+Image>
+
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0.13, 0.15, 0.21, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Kiadás követő"
+            font_size: '28sp'
+            bold: True
+            color: 1, 1, 1, 1
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 30
+
+            Label:
+                text: 'Kategóriák:'
+                font_size: '18sp'
+                bold: True
+                color: 1, 1, 1, 1
+                halign: 'left'
+                valign: 'middle'
+                text_size: self.size
+
+            Widget:
+
+            ClickableImage:
+                source: 'imgs/Setting_line.png'
+                on_release: app.root.current = "setting_screen"
+                size_hint_x: None
+                width: self.texture_size[0]
+
+
+        GridLayout:
+            id: categories_container
+            cols: 2
+            spacing: 10
+            row_default_height: 30
+            row_force_default: True
+            padding: [25, 0, 25, 0]
+            size_hint_y: None
+            height: self.minimum_height
+
+        Widget:
+
+        Button:
+            text: "+ Kiadás"
+            size_hint: None, None
+            size: 110, 35
+            background_normal: ''
+            background_color: 0, 0, 0, 0
+            color: 1, 1, 1, 1
+            font_size: '22sp'
+            bold: True
+
+            canvas.before:
+                Color:
+                    rgba: 0, 0.8, 0, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+            on_release: app.root.current = "upload_screen"
+
+            pos_hint: {'center_x': 0.5}
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: None, None
+            size: min(400, self.parent.parent.width), 80
+            padding: 10
+            spacing: 10
+            pos_hint: {'center_x': 0.5}
+            canvas.before:
+                Color:
+                    rgba: 0.85, 0.85, 0.85, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: "Maradék pénz:"
+                    font_size: '16sp'
+                    color: 0, 0, 0, 1
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                Label:
+                    id: money
+                    text: "- Ft"
+                    font_size: '20sp'
+                    color: 0, 1, 0, 1
+                    bold: True
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+            Widget:
+                id: progres_bar
+                size_hint: None, None
+                size: self.parent.width - 30, 20
+
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [self.size[1] / 2]
+
+                    Color:
+                        rgba: 0, 0.8, 0, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.width * self.parent.parent.parent.progress, self.height
+                        radius: [self.size[1] / 2]
+
+        Button:
+            text: "Statisztika"
+            size_hint: None, None
+            size: 160, 35
+            background_normal: ''
+            background_color: 0, 0, 0, 0
+            color: 1, 1, 1, 1
+            font_size: '22sp'
+            bold: True
+
+            canvas.before:
+                Color:
+                    rgba: 0.12, 0.09, 0.97, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+            on_release: app.root.current = "plot_screen"
+
+            pos_hint: {'center_x': 0.5}
